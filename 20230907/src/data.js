@@ -1,4 +1,4 @@
-const data = [
+export const stocksData = [
   {
     stockCode: 'US20190508002',
     title: '악셀라 헬스',
@@ -7,7 +7,7 @@ const data = [
       'https://static.toss.im/png-icons/securities/icn-sec-fill-NAS0D7YY9-E0.png',
     priceValue: null,
     value: null,
-    isLike: false,
+    isLike: true,
   },
   {
     stockCode: 'A065350',
