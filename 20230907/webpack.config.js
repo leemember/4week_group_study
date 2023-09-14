@@ -1,18 +1,24 @@
-const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const path = require('path')
+// ES5
+// module.exports
+// require('')
+
+// ES6
+// export, export default
+// import
 
 module.exports = {
+  // 어떤 파일을 기준으로 번들링 할거냐
   entry: path.resolve(__dirname, './src'),
   output: {
     filename: 'bundle.[hash].js',
     path: path.resolve(__dirname, 'dist'),
-    publicPath: '/',
   },
   module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
-        exclude: /node_modules/,
         use: 'babel-loader',
       },
     ],
@@ -22,9 +28,8 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './public/index.html',
-      filename: './index.html',
-      showErrors: true,
+      template: path.resolve(__dirname, 'public/index.html'),
+      filename: 'index.html',
     }),
   ],
   devServer: {

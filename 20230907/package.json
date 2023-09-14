@@ -1,10 +1,22 @@
 {
+  "name": "20230907",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint .",
+    "build": "webpack --mode=production",
+    "dev": "webpack serve --mode=development"
+  },
+  "author": "",
+  "license": "ISC",
   "devDependencies": {
-    "@babel/core": "^7.22.17",
+    "@babel/core": "^7.22.15",
     "@babel/preset-env": "^7.22.15",
     "@babel/preset-react": "^7.22.15",
     "babel-loader": "^9.1.3",
-    "eslint": "^8.49.0",
+    "eslint": "^8.48.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-import": "^2.28.1",
     "eslint-plugin-node": "^11.1.0",
@@ -18,12 +30,6 @@
     "webpack": "^5.88.2",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^4.15.1"
-  },
-  "scripts": {
-    "lint": "eslint .",
-    "prettier": "prettier .",
-    "build": "webpack --mode production",
-    "dev": "webpack serve --mode=development"
   },
   "dependencies": {
     "react": "^18.2.0",
