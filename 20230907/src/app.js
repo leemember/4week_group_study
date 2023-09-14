@@ -35,7 +35,9 @@ function App() {
     search === true
       ? stocksData
       : stocksData.filter((stock) => {
-          return stock.title.includes(search.toLocaleLowerCase())
+          return stock.title
+            .toLocaleLowerCase()
+            .includes(search.toLocaleLowerCase())
         })
 
   return (
