@@ -1,6 +1,7 @@
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
-const StockRow = ({ rank, stockName, isLike, logoUrl }) => {
+const StockRow = ({ id, rank, stockName, isLike, logoUrl, onClickLike }) => {
   return (
     <Container>
       <span>{rank}</span>
@@ -8,8 +9,13 @@ const StockRow = ({ rank, stockName, isLike, logoUrl }) => {
         <img src={logoUrl} alt="" />
       </div>
 
-      <span>{stockName}</span>
-      <IconLike isLike={isLike} />
+      <Link to={`/stock/${id}`}>
+        <span>{stockName}</span>
+      </Link>
+
+      <button onClick={onClickLike}>
+        <IconLike isLike={isLike} />
+      </button>
     </Container>
   )
 }
@@ -31,6 +37,11 @@ const Container = styled.li`
       height: 100%;
       object-fit: cover;
     }
+  }
+  button {
+    background: none;
+    border: none;
+    cursor: pointer;
   }
 `
 

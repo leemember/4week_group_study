@@ -14,3 +14,24 @@
   - 실습 (프로젝트 생성 및 패키지 환경구성)
   - 컴포넌트란? (컴포넌트 실습)
     - 컴포넌트를 만드는 기법 2가지 (class 기반 & function 기반)
+
+---
+
+- 조건부형식을 작업할 때는 아래와 같이 직관적으로 하는 것이 보기가 좋다.
+
+```javascript
+ <div style={isDark === true ? darkmodeStyle : lightmodeStyle}>
+      <div onClick={darkmodeToggle}>
+        {isDark === true ? (
+          <img
+            src="https://cdn2.iconfinder.com/data/icons/weather-color-2/500/weather-02-64.png"
+            alt="태양"
+          />
+        ) : (
+          <img
+            src="https://cdn2.iconfinder.com/data/icons/weather-color-2/500/weather-10-64.png"
+            alt="달"
+          />
+        )}
+      </div>
+```

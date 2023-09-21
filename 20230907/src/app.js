@@ -1,8 +1,32 @@
 import { useState } from 'react'
-import { stocksData } from './data'
-import StockRow from './components/StockRow'
+import StockList from './components/home/StockList'
+import { getStocks, updateStock } from '../remote/stock'
+import { useQuery, useQueryClient } from 'react-query'
+
+const darkmodeStyle = {
+  backgroundColor: 'rgba(3,18,40,0.7)',
+  color: '#fff',
+}
+
+const lightmodeStyle = {
+  backgroundColor: '#fff',
+  color: 'rgba(3,18,40,0.7)',
+}
 
 function App() {
+  const { data: stocks, isLoading } = useQuery(['stocksList'], () =>
+    getStocks().then((res) => {
+      // axios 말고 fetch로 불러올 경우에는 then으로 값을 2번 뽑아내준다.
+      if (res.ok === false) {
+        throw new Error('주식 데이터를 불러오지 못했어요')
+      }
+      return res.json()
+    }),
+  )
+  const queryClient = useQueryClient()
+
+  console.log('stocks', stocks)
+
   // ?? -> nullish는 앞에 것이 안되면 그냥 뒤에 값으로 취급해라
   // () => 지연초기화 : 최초에 단 한 번만 실행하자! 라는 뜻이다.
   // 이렇게 하게 되면 테마가 한 번만 된다.
@@ -21,20 +45,19 @@ function App() {
     setSearch(e.target.value)
   }
 
-  const darkmodeStyle = {
-    backgroundColor: 'rgba(3,18,40,0.7)',
-    color: '#fff',
-  }
+  const handleLikeButtonClick = async (item) => {
+    const res = await updateStock(item)
 
-  const lightmodeStyle = {
-    backgroundColor: '#fff',
-    color: 'rgba(3,18,40,0.7)',
+    if (res.ok === true) {
+      queryClient.invalidateQueries('stocksList')
+      window.alert('업데이트가 성공하였습니다.')
+    }
   }
 
   const searchResult =
-    search === true
-      ? stocksData
-      : stocksData.filter((stock) => {
+    search === ''
+      ? stocks
+      : stocks.filter((stock) => {
           return stock.title
             .toLocaleLowerCase()
             .includes(search.toLocaleLowerCase())
@@ -55,6 +78,7 @@ function App() {
           />
         )}
       </div>
+
       <div>
         <input
           placeholder="검색어를 입력해주세요"
@@ -65,17 +89,22 @@ function App() {
       </div>
 
       <ul>
-        {searchResult.map((stock, index) => {
-          return (
-            <StockRow
-              rank={index + 1}
-              stockName={stock.title}
-              isLike={stock.isLike}
-              logoUrl={stock.imageUrl}
-              key={stock.stockCode}
-            />
-          )
-        })}
+        {isLoading ? (
+          <div
+            style={{
+              width: '100%',
+              height: '400px',
+              background: 'pink',
+            }}
+          >
+            <h3>로딩중...</h3>
+          </div>
+        ) : (
+          <StockList
+            stocks={searchResult}
+            onClickLike={handleLikeButtonClick}
+          />
+        )}
       </ul>
     </div>
   )
