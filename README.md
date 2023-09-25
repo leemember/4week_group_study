@@ -1,6 +1,9 @@
 ## 🎀 프론트엔드 그룹 스터디
 
-> 매주 1회씩 한 달간 진행되는 React 스터디 (총 4회 | 9월 7일 ~ 9월 27일)
+- 개요 : 매주 1회씩 한 달간 진행되는 React 스터디
+- 기간 : 9월 7일 ~ 9월 27일 (총 4회)
+
+<br />
 
 ### 📮 1Week (9월 7일 목요일)
 
@@ -15,6 +18,8 @@
 - 실습 (프로젝트 생성 및 패키지 환경구성)
 - 컴포넌트란? (컴포넌트 실습)
   - 컴포넌트를 만드는 기법 2가지 (class 기반 & function 기반)
+
+<br />
 
 ---
 
@@ -80,6 +85,8 @@ const [isDark, setIsDark] = useState(() =>
 );
 ```
 
+<br />
+
 ---
 
 ### 📮 3Week
@@ -141,7 +148,7 @@ const handleLikeButtonClick = async (item) => {
 
 ![](https://velog.velcdn.com/images/leemember/post/0f84d6cc-56e2-4a8d-97a6-13df4621e28f/image.png)
 
-여기서 CLS (Cumulative Layout Shift)가 0에 수렴해야 좋은 성능이라고 말할 수 있다.
+여기서 **CLS (Cumulative Layout Shift)**가 0에 수렴해야 좋은 성능이라고 말할 수 있다.
 브라우저 렌더링에서 일어나는 레이아웃이 적게 일어났다는 것이다.
 
 > **📍 스켈레톤 UI는 어떻게 만들어야 좋은 것일까 ?** <br/>
