@@ -5,25 +5,26 @@
 
 <br />
 
-### 📮 1Week (9월 7일 목요일)
+### 📮 1Week (9월 7일 목요일) 요약
 
-- 브라우저 렌더링 원리
-- 요즘은 왜 제이쿼리를 안쓸까 ?
-- Node와 Npm
-- 싱글 페이지 어플리케이션(SPA)이란?
-- 바벨에 대해서
-- 웹팩에 대해서
-- ES LINT와 Prettier
-- React
-- 실습 (프로젝트 생성 및 패키지 환경구성)
-- 컴포넌트란? (컴포넌트 실습)
-  - 컴포넌트를 만드는 기법 2가지 (class 기반 & function 기반)
+1. 브라우저 렌더링 원리
+2. 요즘은 왜 제이쿼리를 안쓸까 ?
+3. node & npm
+4. 싱글 페이지 어플리케이션(SPA)이란?
+5. 바벨에 대해서
+6. 웹팩에 대해서
+7. ES LINT와 Prettier
+8. React
+9. 실습 (프로젝트 생성 및 패키지 환경구성)
+10. 컴포넌트란? (컴포넌트 실습)
+
+- 컴포넌트를 만드는 기법 2가지 (class 기반 & function 기반)
 
 <br />
 
 ---
 
-### 📮 2Week (9월 14일 목요일)
+### 📮 2Week (9월 14일 목요일) 요약
 
 - 조건부형식을 작업할 때는 아래와 같이 직관적으로 하는 것이 보기가 좋다. <br /> 🌟`{isDark === true ? darkmodeStyle : lightmodeStyle}`🌟
 
@@ -89,7 +90,7 @@ const [isDark, setIsDark] = useState(() =>
 
 ---
 
-### 📮 3Week
+### 📮 3Week (9월 21일 목요일) 요약
 
 - React-Query 숙지
   - `queryClient.invalidateQueries();`란? 캐싱된 데이터를 `reset` 해주는 뜻이다.
@@ -148,7 +149,7 @@ const handleLikeButtonClick = async (item) => {
 
 ![](https://velog.velcdn.com/images/leemember/post/0f84d6cc-56e2-4a8d-97a6-13df4621e28f/image.png)
 
-여기서 **CLS (Cumulative Layout Shift)**가 0에 수렴해야 좋은 성능이라고 말할 수 있다.
+여기서 **CLS (Cumulative Layout Shift)** 가 0에 수렴해야 좋은 성능이라고 말할 수 있다.
 브라우저 렌더링에서 일어나는 레이아웃이 적게 일어났다는 것이다.
 
 > **📍 스켈레톤 UI는 어떻게 만들어야 좋은 것일까 ?** <br/>
