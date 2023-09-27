@@ -5,6 +5,13 @@
 
 <br />
 
+### Start
+
+```javascript
+$npm run dev
+$npm run db
+```
+
 ### 📮 1Week (9월 7일 목요일) 요약
 
 1. 브라우저 렌더링 원리
@@ -154,3 +161,7 @@ const handleLikeButtonClick = async (item) => {
 
 > **📍 스켈레톤 UI는 어떻게 만들어야 좋은 것일까 ?** <br/>
 > 실제 데이터 콘텐츠 UI의 높이값과 데이터가 나오기 전의 로딩될 때 보여지는 스켈레톤 UI의 height(높이)와 비슷해야한다.
+
+---
+
+### 📮 4Week (9월 27일 수요일) 요약
