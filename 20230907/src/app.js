@@ -14,14 +14,19 @@ const lightmodeStyle = {
 }
 
 function App() {
-  const { data: stocks, isLoading } = useQuery(['stocksList'], () =>
-    getStocks().then((res) => {
-      // axios 말고 fetch로 불러올 경우에는 then으로 값을 2번 뽑아내준다.
-      if (res.ok === false) {
-        throw new Error('주식 데이터를 불러오지 못했어요')
-      }
-      return res.json()
-    }),
+  const { data: stocks } = useQuery(
+    ['stocksList'],
+    () =>
+      getStocks().then((res) => {
+        // axios 말고 fetch로 불러올 경우에는 then으로 값을 2번 뽑아내준다.
+        if (res.ok === false) {
+          throw new Error('주식 데이터를 불러오지 못했어요')
+        }
+        return res.json()
+      }),
+    // useQuery 3번재 인자는 suspense를 방출할 수 있는 것이다.
+    // suspense란 ?Suspense는 아직 렌더링이 준비되지 않은 컴포넌트가 있을때 로딩 화면을 보여주고 로딩이 완료되면 해당 컴포넌트를 보여주는 React에 내장되어 있는 기능이다.
+    { suspense: true },
   )
   const queryClient = useQueryClient()
 
@@ -89,22 +94,7 @@ function App() {
       </div>
 
       <ul>
-        {isLoading ? (
-          <div
-            style={{
-              width: '100%',
-              height: '400px',
-              background: 'pink',
-            }}
-          >
-            <h3>로딩중...</h3>
-          </div>
-        ) : (
-          <StockList
-            stocks={searchResult}
-            onClickLike={handleLikeButtonClick}
-          />
-        )}
+        <StockList stocks={searchResult} onClickLike={handleLikeButtonClick} />
       </ul>
     </div>
   )

@@ -165,3 +165,6 @@ const handleLikeButtonClick = async (item) => {
 ---
 
 ### 📮 4Week (9월 27일 수요일) 요약
+
+- ErrorBoundary
+- Suspense
